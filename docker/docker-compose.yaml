@@ -1,0 +1,12 @@
+version: "3"
+services:
+    bdpsql:
+        image: postgres:12
+        container_name: docker-ps-microservice
+        environment:
+            - POSTGRES_USER=docker
+            - POSTGRES_PASSWORD=P@ssw0rd
+        volumes:
+            - /home/notroot/Downloads/Arquivos Gustavo/Treinamentos e estudos/Projeto Pessoal/microservices-create-users/docker/data:/var/lib/postgresql/data
+        ports:
+            - 5432:5432
