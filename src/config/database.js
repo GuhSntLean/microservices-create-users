@@ -1,4 +1,4 @@
-module.exports = {
+const database = {
     dialect: 'postgres',
     host: '127.0.0.1',
     username: 'docker',
@@ -9,3 +9,5 @@ module.exports = {
         underscored: true,
     },
 }
+
+module.exports = database
