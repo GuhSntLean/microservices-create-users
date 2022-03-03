@@ -1,5 +1,6 @@
-const addressRoutes = require('./address-routes')
+const express = require('express')
+const router = express.Router() 
 
-module.exports = {
-    addressRoutes
-}
+
+
+module.exports = router
