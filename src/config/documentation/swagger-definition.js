@@ -1,28 +1,28 @@
 const configSwagger = {
-  definition: {
+  swaggerDefinition: {
     openapi: "3.0.0",
     info: {
-      title: "GuhSntLean Documentation",
+      title: "Microservice Documentation",
       version: "0.0.1",
       description:
-        "This is a simple CRUD API application made with Express and documented with Swagger",
+        "",
       license: {
         name: "MIT",
         url: "https://spdx.org/licenses/MIT.html",
       },
       contact: {
-        name: "SuhSntLean",
+        name: "GuhSntLean",
         url: "",
         email: "",
       },
     },
     servers: [
       {
-        url: "http://localhost:3001/",
+        url: "http://localhost:3001",
       },
     ],
   },
-  apis: ["./routes/index.js"],
+  apis: ["./src/routes/*.js"],
 };
 
 module.exports = configSwagger;

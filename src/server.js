@@ -6,7 +6,7 @@ const swaggerUi = require("swagger-ui-express");
 const app = express();
 
 // definições de arquivos
-const routes = require("./routes");
+const routes = require("./routes/routes");
 const port = 3001 | process.env.PORT;
 const configSwagger = require("./config/documentation/swagger-definition")
 const specs = swaggerJsdoc(configSwagger)
@@ -15,8 +15,7 @@ const specs = swaggerJsdoc(configSwagger)
 app.use(express.json());
 app.use(cors());
 app.use(routes);
-app.use("/app-docs", swaggerUi.serve, swaggerUi.setup(specs))
-
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(specs, { explorer: true }))
 
 // Inicialização do sistema
 app.listen(port, () => console.log(`App online in port ${port}`));
