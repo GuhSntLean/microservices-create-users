@@ -1,15 +1,22 @@
+// biblioteca usadas
 const express = require("express");
-const cors = require("cors")
+const cors = require("cors");
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 const app = express();
 
+// definições de arquivos
 const routes = require("./routes");
-const port = 3001 | process.env.PORT
+const port = 3001 | process.env.PORT;
+const configSwagger = require("./config/documentation/swagger-definition")
+const specs = swaggerJsdoc(configSwagger)
 
-require("./database");
-
+// Definições de usabilidade de biblioteca 
 app.use(express.json());
-app.use(cors())
-
+app.use(cors());
 app.use(routes);
+app.use("/app-docs", swaggerUi.serve, swaggerUi.setup(specs))
 
-app.listen(port, () => console.log(`App online on port ${port}`));
+
+// Inicialização do sistema
+app.listen(port, () => console.log(`App online in port ${port}`));
