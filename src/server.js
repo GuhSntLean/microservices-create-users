@@ -1,11 +1,15 @@
-const express = require('express');
-const routes = require('./routes');
+const express = require("express");
+const cors = require("cors")
+const app = express();
 
-require('./database')
+const routes = require("./routes");
+const port = 3001 | process.env.PORT
 
-const app = express()
+require("./database");
 
 app.use(express.json());
+app.use(cors())
+
 app.use(routes);
 
-app.listen(3333);
+app.listen(port, () => console.log(`App online on port ${port}`));
